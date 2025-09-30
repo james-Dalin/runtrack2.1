@@ -6,8 +6,6 @@ $dic = [
     "voyelles" => 0,
     "consonne" => 0
 ];
-
-while ()
 ?>
 
 
