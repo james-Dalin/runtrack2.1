@@ -22,7 +22,7 @@ if (isset($_GET['nombre']) && $_GET['nombre'] !== '') {
     <title>Job6</title>
 </head>
 <body>
-    <form action="" method="GET">
+    <form enctype="multipart/" action="" method="GET">
         <input type="text" name="nombre" required>
         <input type="submit" value="Vérifier">
     </form>
