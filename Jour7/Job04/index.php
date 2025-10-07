@@ -7,15 +7,31 @@
 // ● le troisième, “$b”, est un nombre.
 // La fonction doit retourner le résultat de l’opération.
 
-$a = 13;
-$b = 25;
-
 function calcule(int $a, string $operation, int $b) {
-    $resultat = $a + $b;
-      return $resultat;
+  if ($operation === '+') {
+    return $a + $b;
+  } elseif ($operation === '-') {
+    return $a - $b;
+  } elseif ($operation === '*') {
+    return $a * $b;
+  } elseif ($operation === '/') {
+    if ($b === 0) {
+      throw new InvalidArgumentException('La division par zéro est impossible.');
+    }
+      return intval($a / $b);
+  } elseif ($operation === '%') {
+    if ($b === 0) {
+      throw new InvalidArgumentException('Le modulo par zéro est impossible.');
+    }
+    return $a % $b;
+  } else {
+    throw new InvalidArgumentException('Opération non supportée ' . $operation);
+  }
 }
 
-$operation = calcule(13, "+", 25);
-echo $operation;
+$a = 23;
+$b = 65;
+$resultat = calcule($a, "-", $b);
+echo $resultat;
 
 // En changeant les types d'opérations, les résultats s'affichent tous.
