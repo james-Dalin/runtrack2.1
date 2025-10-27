@@ -77,7 +77,7 @@ WHERE prenom = 't';
 /* JOB07 */
 SELECT *
 FROM etudiants
-WHERE naissance < 2000
+WHERE naissance > 2000
 
 /* JOB 08 : Compter le nombre d'étudiants */
 SELECT COUNT(*) 
@@ -86,6 +86,11 @@ FROM etudiants
 /* JOB 09 : Requête pour sélectionner les informations des étudiants qui ont moins de 18 ans */
 SELECT *
 FROM etudiants
-WHERE 
+WHERE TIMESTAMPDIFF(YEAR, naissance, CURDATE()) < 18
+
+/* JOB10 : calculer la superficie de l’ensemble des étages. */
+
+SELECT SUM(superficie)
+FROM etage
 
 /* JOB 11 : sélectionner la somme des capacités des salles */
