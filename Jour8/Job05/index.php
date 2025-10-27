@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1); //permet d'éviter les conversions automatiques 
+
 session_start();
 
 if (!isset($_SESSION['board'])) {

@@ -51,3 +51,41 @@ VALUES
 ('Bocal Peda', 2, 4),
 ('Coworking', 2, 80),
 ('Studio Video', 2, 5);
+
+/* JOB03 */
+
+SELECT *
+FROM etudiants
+
+/* JOB04 */
+
+SELECT nom, capacite
+FROM salles
+
+/* JOB05 */
+
+SELECT prenom, nom, naissance
+FROM etudiants
+WHERE sexe = 'Femme';
+
+/* JOB06 */
+
+SELECT *
+FROM etudiants
+WHERE prenom = 't';
+
+/* JOB07 */
+SELECT *
+FROM etudiants
+WHERE naissance < 2000
+
+/* JOB 08 : Compter le nombre d'étudiants */
+SELECT COUNT(*) 
+FROM etudiants
+
+/* JOB 09 : Requête pour sélectionner les informations des étudiants qui ont moins de 18 ans */
+SELECT *
+FROM etudiants
+WHERE 
+
+/* JOB 11 : sélectionner la somme des capacités des salles */
