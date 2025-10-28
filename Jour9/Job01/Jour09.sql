@@ -113,10 +113,12 @@ FROM salles
 /* JOB 14 :  */
 SELECT prenom, nom, naissance
 FROM etudiants
-WHERE naissance, DATEDIFF(YEAR, '1981-01-02', '2019-11-07')
+WHERE naissance BETWEEN '1981-02-01' AND '2019-11-07'
 
 /* JOB 15 :  */
 
-
+SELECT salles.nom AS nom_salle, etage.nom AS nom_etage
+FROM salles
+JOIN etage ON salles.id_etage = etage.id
 
 /* JOB 16 :  */
