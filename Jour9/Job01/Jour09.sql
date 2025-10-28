@@ -72,7 +72,7 @@ WHERE sexe = 'Femme';
 
 SELECT *
 FROM etudiants
-WHERE prenom = 't';
+WHERE prenom LIKE'T%'
 
 /* JOB07 */
 SELECT *
@@ -94,3 +94,23 @@ SELECT SUM(superficie)
 FROM etage
 
 /* JOB 11 : sélectionner la somme des capacités des salles */
+
+SELECT SUM(capacite)
+FROM salles
+
+/* JOB 12 : Afficher l'ensemble de la salle dans l'ordre décroissant */
+
+SELECT * 
+FROM salles
+ORDER BY id DESC
+
+/* JOB 13 : Une requête qui permet de sélectionner la capacité moyenne des salle */ 
+
+SELECT AVG(capacite)
+FROM salles
+
+/* JOB 14 :  */
+
+/* JOB 15 :  */
+
+/* JOB 16 :  */
