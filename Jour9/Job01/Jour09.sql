@@ -97,12 +97,13 @@ FROM etage
 
 SELECT SUM(capacite)
 FROM salles
+WHERE id_etage = 1
 
 /* JOB 12 : Afficher l'ensemble de la salle dans l'ordre décroissant */
 
 SELECT * 
 FROM salles
-ORDER BY id DESC
+ORDER BY capacite DESC
 
 /* JOB 13 : Une requête qui permet de sélectionner la capacité moyenne des salle */ 
 
@@ -110,7 +111,12 @@ SELECT AVG(capacite)
 FROM salles
 
 /* JOB 14 :  */
+SELECT prenom, nom, naissance
+FROM etudiants
+WHERE naissance, DATEDIFF(YEAR, '1981-01-02', '2019-11-07')
 
 /* JOB 15 :  */
+
+
 
 /* JOB 16 :  */
