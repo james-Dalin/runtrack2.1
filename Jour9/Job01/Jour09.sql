@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS etudiants (
     email VARCHAR(255) NOT NULL
 ) ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS etage (
+CREATE TABLE IF NOT EXISTS etages (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(255) NOT NULL,
     numero INT NOT NULL,
@@ -38,7 +38,7 @@ VALUES
 ('Ruben','Habib','1993-05-26','Homme','ruben.habib@laplateforme.io'),
 ('Toto','Dupont','2019-11-07','Homme','toto@laplateforme.io');
 
-INSERT INTO etage (nom, numero, superficie)
+INSERT INTO etages (nom, numero, superficie)
 VALUES
 ('RDC', 0, 500),
 ('R+1', 1, 500);
@@ -91,7 +91,7 @@ WHERE TIMESTAMPDIFF(YEAR, naissance, CURDATE()) < 18
 /* JOB10 : calculer la superficie de l’ensemble des étages. */
 
 SELECT SUM(superficie)
-FROM etage
+FROM etages
 
 /* JOB 11 : sélectionner la somme des capacités des salles */
 
@@ -117,8 +117,24 @@ WHERE naissance BETWEEN '1981-02-01' AND '2019-11-07'
 
 /* JOB 15 :  */
 
-SELECT salles.nom AS nom_salle, etage.nom AS nom_etage
+SELECT 
+    salles.nom AS nom_salle, 
+    etages.nom AS nom_etage
 FROM salles
-JOIN etage ON salles.id_etage = etage.id
+JOIN etages ON salles.id_etage = etages.id
 
-/* JOB 16 :  */
+/* JOB 16 : Faire une requête permettant de récupérer le nom de
+l'étage ayant la salle avec la plus grande capacité (et afficher aussi le nom de cette salle
+ainsi que sa capacité).
+Dans ce résultat, la colonne “nom” de la salle doit être renommée en “Biggest Room”*/
+
+SELECT 
+    salles.nom AS "Biggest Room",
+    salles.capacite,
+    etages.nom AS nom_etage
+FROM salles
+JOIN etages ON salles.id_etage = etages.id
+WHERE salles.capacite = (SELECT MAX(capacite) FROM salles)
+
+
+
